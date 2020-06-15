@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-tag-js","path":"/pensieve/tags/blog/","result":{"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"frontmatter":{"title":"Work in progress","description":"Writing is fun","date":"2020-06-12","slug":"/pensieve/writing","tags":["Blog","Writing"]}}}]}},"pageContext":{"tag":"Blog"}}}
