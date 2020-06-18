@@ -1,5 +1,5 @@
 module.exports = {
-  siteTitle: 'Pragmatic',
+  siteTitle: 'Prateek Rathore | Pragmatic',
   siteDescription:
     'Prateek Rathore is a software engineer based in Pune, India who specializes in building (and occasionally designing) exceptional websites, applications, and everything in between.',
   siteKeywords:
