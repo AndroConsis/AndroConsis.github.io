@@ -9,7 +9,7 @@ skills:
   - Android & iOS
 ---
 
-I'm an enthusiastic developer who always enjoys interesting real world problem solving projects and challenges. I love to work on mobile, web and related technologies. Presently I'm dealing with ReactJS and I love it!
+Computers have been keeping me awake since as long I can remember. I absolutely love building softwares. I always had keen design sense, I have designed & developed several mobile and web apps.
 
 I likewise love investing energy staying up with the latest with tech news, gadgets and here and there going to various conferences. On spare time, I play COD Mobile, or cruising on my bike. I also like to take lot of snaps, and trying to invest more time to be better at it.
 
