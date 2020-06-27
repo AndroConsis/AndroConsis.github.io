@@ -113,6 +113,7 @@ const StyledFeaturedImg = styled(Img)`
   border-radius: ${theme.borderRadius};
   position: relative;
   mix-blend-mode: multiply;
+  z-index: 2;
   filter: grayscale(100%) contrast(1) brightness(90%);
   ${media.tablet`
     object-fit: cover;
@@ -126,7 +127,7 @@ const StyledImgContainer = styled.a`
   grid-column: 6 / -1;
   grid-row: 1 / -1;
   position: relative;
-  z-index: 1;
+  z-index: -1;
   background-color: ${colors.green};
   border-radius: ${theme.radius + 1}px;
   transition: ${theme.transition};
@@ -138,13 +139,18 @@ const StyledImgContainer = styled.a`
   &:hover,
   &:focus {
     background: transparent;
+    &:after {
+      top: 15px;
+      left: 15px;
+    }
     &:before,
     ${StyledFeaturedImg} {
-      background: transparent;
+      /* background: transparent; */
       filter: none;
     }
   }
-  &:before {
+  &:before,
+  &:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -153,10 +159,22 @@ const StyledImgContainer = styled.a`
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 3;
     transition: ${theme.transition};
     background-color: ${colors.navy};
+    mix-blend-mode: color;
+  }
+  &:before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: ${colors.navy};
     mix-blend-mode: screen;
+  }
+  &:after {
+    border: 2px solid ${colors.green};
+    top: 20px;
+    left: 20px;
   }
 `;
 const StyledProject = styled.div`

@@ -6,7 +6,7 @@ import sr from '@utils/sr';
 import { srConfig } from '@config';
 import { FormattedIcon } from '@components/icons';
 import styled from 'styled-components';
-import { theme, mixins, media, Section, Button } from '@styles';
+import { theme, mixins, media, Section } from '@styles';
 const { colors, fontSizes, fonts } = theme;
 
 const StyledContainer = styled(Section)`
@@ -122,12 +122,9 @@ const StyledTechList = styled.ul`
     }
   }
 `;
-const StyledMoreButton = styled(Button)`
-  margin: 100px auto 0;
-`;
 
 const Projects = ({ data }) => {
-  const [showMore, setShowMore] = useState(false);
+  const [showMore] = useState(false);
   const revealTitle = useRef(null);
   const revealArchiveLink = useRef(null);
   const revealProjects = useRef([]);
@@ -215,10 +212,6 @@ const Projects = ({ data }) => {
             })}
         </TransitionGroup>
       </StyledGrid>
-
-      <StyledMoreButton onClick={() => setShowMore(!showMore)}>
-        Show {showMore ? 'Less' : 'More'}
-      </StyledMoreButton>
     </StyledContainer>
   );
 };
