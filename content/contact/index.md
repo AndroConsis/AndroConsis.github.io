@@ -3,4 +3,4 @@ title: 'Get In Touch'
 buttonText: 'Say Hello'
 ---
 
-Don't be a Stranger!
+Interested in working together? We should queue up a chat. I’ll buy the coffee.
