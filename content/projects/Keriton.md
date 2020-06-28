@@ -1,5 +1,5 @@
 ---
-date: '2016-9-18'
+date: '2016-09-18'
 title: 'Keriton Kare'
 github: ''
 external: 'https://www.keriton.com/'

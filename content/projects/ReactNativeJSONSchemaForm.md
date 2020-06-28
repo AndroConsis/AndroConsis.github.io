@@ -1,5 +1,5 @@
 ---
-date: '2019-3-18'
+date: '2019-03-18'
 title: 'react-native-json-schema-form'
 github: 'https://github.com/AndroConsis/react-native-json-schema-form'
 external: 'https://www.npmjs.com/package/@androconsis/react-native-jsonschema-form'

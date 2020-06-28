@@ -1,5 +1,5 @@
 ---
-date: '2016-3-18'
+date: '2016-03-18'
 title: 'Taj Business Partner App'
 github: ''
 external: ''

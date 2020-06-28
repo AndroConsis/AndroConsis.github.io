@@ -1,5 +1,5 @@
 ---
-date: '2017-3-18'
+date: '2017-03-18'
 title: 'Techgium'
 github: ''
 playStore: 'https://itunes.apple.com/us/app/ltts-techgium/id1330114469?mt=8'

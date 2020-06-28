@@ -1,5 +1,5 @@
 ---
-date: '2017-3-18'
+date: '2017-03-18'
 title: '8 Regina'
 github: ''
 external: ''

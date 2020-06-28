@@ -1,5 +1,5 @@
 ---
-date: '2020-6-01'
+date: '2020-05-01'
 title: 'Pegasus PRO'
 github: ''
 external: ''
