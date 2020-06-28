@@ -2,11 +2,13 @@
 date: '2'
 title: '8 Regina'
 cover: './reginaboard.png'
-github: 'https://apps.apple.com/us/app/8-regina/id1264445403'
-external: 'https://play.google.com/store/apps/details?id=com.krixi.eightregina&hl=en_IN'
+github: ''
+external: ''
+appStore: 'https://apps.apple.com/us/app/8-regina/id1264445403'
+playStore: 'https://play.google.com/store/apps/details?id=com.krixi.eightregina&hl=en_IN'
 tech:
-  - React Native
-  - Krixi
+  - Ionic Framework
+  - HTML5 & CSS
 showInProjects: true
 company: 'Krixi'
 ---

@@ -240,7 +240,7 @@ const Featured = ({ data }) => {
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover } = frontmatter;
+            const { external, title, tech, github, cover, appStore, playStore } = frontmatter;
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
@@ -268,22 +268,40 @@ const Featured = ({ data }) => {
                     </StyledTechList>
                   )}
                   <StyledLinkWrapper>
-                    {github && (
-                      <a
-                        href={github}
-                        target="_blank"
-                        rel="nofollow noopener noreferrer"
-                        aria-label="GitHub Link">
-                        <FormattedIcon name="AppStore" />
-                      </a>
-                    )}
                     {external && (
                       <a
                         href={external}
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         aria-label="External Link">
+                        <FormattedIcon name="External" />
+                      </a>
+                    )}
+                    {github && (
+                      <a
+                        href={github}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer"
+                        aria-label="GitHub Link">
+                        <FormattedIcon name="GitHub" />
+                      </a>
+                    )}
+                    {playStore && (
+                      <a
+                        href={playStore}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer"
+                        aria-label="External Link">
                         <FormattedIcon name="PlayStore" />
+                      </a>
+                    )}
+                    {appStore && (
+                      <a
+                        href={playStore}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer"
+                        aria-label="External Link">
+                        <FormattedIcon name="AppStore" />
                       </a>
                     )}
                   </StyledLinkWrapper>

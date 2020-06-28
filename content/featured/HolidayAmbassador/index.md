@@ -2,8 +2,10 @@
 date: '3'
 title: 'Holiday Ambassador'
 cover: './HAMMT.png'
-github: 'https://apps.apple.com/in/app/holiday-ambassador/id1359001930'
-external: 'https://play.google.com/store/apps/details?id=com.mmtapp.holidayambassador&hl=en_IN'
+github: ''
+appStore: 'https://apps.apple.com/in/app/holiday-ambassador/id1359001930'
+playStore: 'https://play.google.com/store/apps/details?id=com.mmtapp.holidayambassador&hl=en_IN'
+external: ''
 tech:
   - Ionic Framework
   - HTML5
