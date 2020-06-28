@@ -1,8 +1,8 @@
 ---
 date: '2019-01-27'
 title: 'Graft'
-github: ''
-external: 'https://itunes.apple.com/us/app/graft-general-registry/id1127854227?mt=8'
+playStore: 'https://play.google.com/store/apps/details?id=graftapp.figmd.com.graft&hl=en_IN'
+appStore: 'https://itunes.apple.com/us/app/graft-general-registry/id1127854227?mt=8'
 tech:
   - React Native
   - Javascript
