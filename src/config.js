@@ -1,9 +1,9 @@
 module.exports = {
-  siteTitle: 'Prateek Rathore | Pragmatic',
+  siteTitle: 'Prateek Rathore | Pragmatic | Home',
   siteDescription:
     'Prateek Rathore is a software engineer based in Pune, India who specializes in building (and occasionally designing) exceptional websites, applications, and everything in between.',
   siteKeywords:
-    'Prateek Rathore, Prateek, Rathore, androconsis, andro, consis, software engineer, front-end engineer, web developer, javascript, mobile app developer, react-native',
+    'Prateek Rathore, Prateek, Rathore, Pratik, Rathod, Pratik Rathod, software engineer, pune, front-end engineer, web developer, javascript, androconsis, react-native',
   siteUrl: 'https://prateekrathore.com',
   siteLanguage: 'en_US',
   googleAnalyticsID: 'UA-170128283-1',
