@@ -50,8 +50,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: ${colors.slate};
-    color: ${colors.lightestSlate};
+    background-color: ${colors.lightSlate};
+    color: ${colors.lightNavy};
   }
 
   #root {
