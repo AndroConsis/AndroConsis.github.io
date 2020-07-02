@@ -1,7 +1,7 @@
 ---
 title: 'Hi, my name is'
 name: 'Prateek Rathore'
-subtitle: 'I build things for the 💻 & 📱'
+subtitle: 'Transforming ideas into reality'
 buttonText: 'Get In Touch'
 ---
 
