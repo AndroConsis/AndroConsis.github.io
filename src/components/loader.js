@@ -58,7 +58,7 @@ const Loader = ({ finishLoading }) => {
         delay: 200,
         duration: 1500,
         easing: 'easeInBounce',
-        strokeDashoffset: [anime.setDashoffset, -120],
+        strokeDashoffset: [anime.setDashoffset, 0],
       })
       .add({
         targets: '#logo',
