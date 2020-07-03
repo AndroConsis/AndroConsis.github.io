@@ -5,4 +5,5 @@ subtitle: 'Transforming ideas into reality'
 buttonText: 'Get In Touch'
 ---
 
-I'm a software engineer based in Pune, India specializing in building (and occasionally designing) exceptional, mobile applications, websites, and everything in between.
+Building the digital future. One bit at a time.
+Got an idea? Lets build it together.
