@@ -31,7 +31,12 @@ const StyledLogo = styled.div`
     margin: 0 auto;
     fill: none;
     user-select: none;
-    #P {
+    #outline {
+      scale: 10;
+    }
+    #box1,
+    #box2,
+    #box3 {
       opacity: 0;
     }
     #shadow {
@@ -48,18 +53,47 @@ const Loader = ({ finishLoading }) => {
 
     loader
       .add({
-        targets: '#logo #P',
-        duration: 700,
+        targets: '#logo #outline',
+        duration: 500,
         easing: 'easeInOutQuart',
         opacity: 1,
+        scale: 1,
       })
       .add({
         targets: '#logo path',
         delay: 200,
         duration: 1500,
-        easing: 'easeInBounce',
+        easing: 'easeInOutQuart',
         strokeDashoffset: [anime.setDashoffset, 0],
+        direction: 'alternate',
       })
+      .add(
+        {
+          targets: '#logo #box3',
+          duration: 200,
+          easing: 'easeInBounce',
+          opacity: 1,
+        },
+        '-=1000',
+      )
+      .add(
+        {
+          targets: '#logo #box2',
+          duration: 200,
+          easing: 'easeInBounce',
+          opacity: 1,
+        },
+        '-=700',
+      )
+      .add(
+        {
+          targets: '#logo #box1',
+          duration: 200,
+          easing: 'easeInBounce',
+          opacity: 1,
+        },
+        '-=100',
+      )
       .add({
         targets: '#logo',
         delay: 500,
