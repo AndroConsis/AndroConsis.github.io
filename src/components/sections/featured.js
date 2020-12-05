@@ -112,9 +112,9 @@ const StyledFeaturedImg = styled(Img)`
   vertical-align: middle;
   border-radius: ${theme.borderRadius};
   position: relative;
-  mix-blend-mode: multiply;
+  mix-blend-mode: blend;
   z-index: 2;
-  filter: grayscale(100%) contrast(1) brightness(90%);
+  filter: grayscale(100%) contrast(1);
   ${media.tablet`
     object-fit: cover;
     width: auto;

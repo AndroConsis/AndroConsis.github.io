@@ -1,6 +1,6 @@
 ---
 date: '2018-01-01'
-title: 'Software Engineer'
+title: 'Senior Software Engineer'
 company: 'FIGmd'
 location: 'Pune, India'
 range: 'Jan 2018 - Present'

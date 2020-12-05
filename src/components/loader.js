@@ -31,16 +31,12 @@ const StyledLogo = styled.div`
     margin: 0 auto;
     fill: none;
     user-select: none;
-    #outline {
-      scale: 10;
-    }
-    #box1,
-    #box2,
-    #box3 {
+    #logo {
       opacity: 0;
+      scale: 0.1;
     }
-    #shadow {
-      opacity: 0;
+    #b24qzRJyUW {
+      opacity: 1;
     }
   }
 `;
@@ -50,50 +46,24 @@ const Loader = ({ finishLoading }) => {
     const loader = anime.timeline({
       complete: () => finishLoading(),
     });
+    // var path = anime.path('#logo');
 
     loader
       .add({
-        targets: '#logo #outline',
-        duration: 500,
-        easing: 'easeInOutQuart',
+        targets: '#logo',
+        duration: 700,
+        easing: 'linear',
+        baseFrequency: 0,
         opacity: 1,
         scale: 1,
       })
       .add({
-        targets: '#logo path',
-        delay: 200,
+        targets: '#b24qzRJyUW',
         duration: 1500,
-        easing: 'easeInOutQuart',
+        easing: 'linear',
+        direction: 'easeOutBounce',
         strokeDashoffset: [anime.setDashoffset, 0],
-        direction: 'alternate',
       })
-      .add(
-        {
-          targets: '#logo #box3',
-          duration: 200,
-          easing: 'easeInBounce',
-          opacity: 1,
-        },
-        '-=1000',
-      )
-      .add(
-        {
-          targets: '#logo #box2',
-          duration: 200,
-          easing: 'easeInBounce',
-          opacity: 1,
-        },
-        '-=700',
-      )
-      .add(
-        {
-          targets: '#logo #box1',
-          duration: 200,
-          easing: 'easeInBounce',
-          opacity: 1,
-        },
-        '-=100',
-      )
       .add({
         targets: '#logo',
         delay: 500,
@@ -101,7 +71,6 @@ const Loader = ({ finishLoading }) => {
         direction: 'alternate',
         easing: 'easeInOutQuart',
         opacity: 0,
-        scale: 0.1,
       })
       .add({
         targets: '.loader',

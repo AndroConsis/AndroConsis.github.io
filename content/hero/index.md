@@ -1,7 +1,7 @@
 ---
 title: 'Hi, my name is'
 name: 'Prateek Rathore'
-subtitle: 'Transforming ideas into reality'
+subtitle: 'I wish you a Merry Christmas.'
 buttonText: 'Get In Touch'
 ---
 
