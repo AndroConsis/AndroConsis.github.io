@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { email } from '@config';
 import styled, { keyframes } from 'styled-components';
 import { theme, mixins, media, Section } from '@styles';
+import { Link } from 'gatsby';
 const { colors, fontSizes, fonts, navDelay, loaderDelay } = theme;
 
 const StyledContainer = styled(Section)`
@@ -52,7 +52,7 @@ const StyledDescription = styled.div`
     ${mixins.inlineLink};
   }
 `;
-const StyledEmailLink = styled.a`
+const StyledEmailLink = styled(Link)`
   ${mixins.bigButton};
   margin-top: 50px;
 `;
@@ -127,7 +127,7 @@ const Hero = ({ data }) => {
   );
   const five = () => (
     <div style={{ transitionDelay: '500ms' }}>
-      <StyledEmailLink href={`mailto:${email}`}>Get In Touch</StyledEmailLink>
+      <StyledEmailLink to={'/#contact'}>Get In Touch</StyledEmailLink>
     </div>
   );
 
