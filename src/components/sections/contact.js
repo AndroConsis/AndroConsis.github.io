@@ -5,6 +5,7 @@ import { srConfig } from '@config';
 import styled from 'styled-components';
 import { theme, mixins, media, Section, Heading } from '@styles';
 import axios from 'axios';
+import LoadingButton from '../button';
 const { colors, fontSizes, fonts, margin } = theme;
 
 const StyledContainer = styled(Section)`
@@ -39,9 +40,16 @@ const StyledTitle = styled.h4`
   ${media.desktop`font-size: 50px;`};
   ${media.tablet`font-size: 40px;`};
 `;
-const StyledEmailLink = styled.a`
-  ${mixins.bigButton};
-  margin-top: 50px;
+
+const StyledSuccessMessage = styled.div`
+  margin: 100px 0px;
+  border: 1px solid ${colors.green};
+  border-radius: ${theme.borderRadius};
+  padding: 1.25rem 1.75rem;
+  font-size: ${fontSizes.line};
+  line-height: 1;
+  text-decoration: none;
+  overflow: hidden;
 `;
 
 const StyledContactForm = styled.div`
@@ -98,11 +106,11 @@ const StyledMessageInput = styled.textarea`
 
 const Contact = ({ data }) => {
   const { frontmatter, html } = data[0].node;
-  const { title, buttonText } = frontmatter;
+  const { title } = frontmatter;
   const revealContainer = useRef(null);
   const [userEmail, setUserEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [messageSent, setMessageSent] = useState(false);
+  const [messageSent, setMessageSent] = useState(true);
   useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
   const sendMail = () => {
@@ -110,11 +118,11 @@ const Contact = ({ data }) => {
       text: message,
       email: userEmail,
     };
-    axios
-      .post('https://us-central1-prateekrathoredotcom.cloudfunctions.net/sendMail', data)
-      .then(() => {
-        setMessageSent(true);
-      });
+    const URL = 'https://us-central1-prateekrathoredotcom.cloudfunctions.net/sendMail';
+
+    axios.post(URL, data).then(() => {
+      setMessageSent(true);
+    });
   };
 
   return (
@@ -125,9 +133,9 @@ const Contact = ({ data }) => {
 
       <div dangerouslySetInnerHTML={{ __html: html }} />
       {messageSent ? (
-        <StyledEmailLink>
+        <StyledSuccessMessage>
           I have recieved your message. I will get back to you soon.
-        </StyledEmailLink>
+        </StyledSuccessMessage>
       ) : (
         <StyledContactForm>
           <StyledEmailInput
@@ -144,9 +152,11 @@ const Contact = ({ data }) => {
         </StyledContactForm>
       )}
       {!messageSent && (
-        <StyledEmailLink onClick={sendMail} target="_blank" rel="nofollow noopener noreferrer">
-          {buttonText}
-        </StyledEmailLink>
+        <LoadingButton
+          onClick={sendMail}
+          isDisabled={!userEmail || !message}
+          target="_blank"
+          rel="nofollow noopener noreferrer"></LoadingButton>
       )}
     </StyledContainer>
   );
