@@ -110,7 +110,7 @@ const Contact = ({ data }) => {
   const revealContainer = useRef(null);
   const [userEmail, setUserEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [messageSent, setMessageSent] = useState(true);
+  const [messageSent, setMessageSent] = useState(false);
   useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
   const sendMail = () => {
