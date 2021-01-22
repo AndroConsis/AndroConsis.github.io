@@ -62,7 +62,7 @@ const StyledContactForm = styled.div`
 
 const StyledEmailInput = styled.input`
   color: #2a2a2a;
-  background-color: ${colors.slate};
+  background-color: ${colors.darkNavy};
   border: 1px solid ${colors.green};
   border-radius: ${theme.borderRadius};
   padding: 1.25rem 1.75rem;
@@ -75,7 +75,7 @@ const StyledEmailInput = styled.input`
   &:hover,
   &:focus,
   &:active {
-    background-color: ${colors.lightestSlate};
+    background-color: ${colors.lightNavy};
   }
   &:after {
     display: none !important;
@@ -84,7 +84,7 @@ const StyledEmailInput = styled.input`
 
 const StyledMessageInput = styled.textarea`
   color: #2a2a2a;
-  background-color: ${colors.slate};
+  background-color: ${colors.darkNavy};
   border: 1px solid ${colors.green};
   border-radius: ${theme.borderRadius};
   padding: 1.25rem 1.75rem;
@@ -97,7 +97,7 @@ const StyledMessageInput = styled.textarea`
   &:hover,
   &:focus,
   &:active {
-    background-color: ${colors.lightestSlate};
+    background-color: ${colors.lightNavy};
   }
   &:after {
     display: none !important;

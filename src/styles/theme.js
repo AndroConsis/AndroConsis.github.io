@@ -1,22 +1,22 @@
 import { hex2rgba } from '@utils';
 
-const ACCENT = '#FFF';
+const ACCENT = '#005b96';
 // const DARK_BG = '#020c1b';
-const DARK_BG = '#A31621';
-const BG = '#DB222A';
+const DARK_BG = '##f6fafb';
+const BG = '#FFF';
 
 const theme = {
   colors: {
     darkNavy: DARK_BG,
     navy: BG,
-    lightNavy: '#d95856',
-    lightestNavy: '#89a7a7',
-    slate: '#f7ffe0',
-    lightSlate: '#d8d0c1',
-    lightestSlate: '#FFF',
-    white: '#FFF',
+    lightNavy: '##f6fafb',
+    lightestNavy: '#009be4',
+    slate: 'rgba(0,0,0,.40)',
+    lightSlate: '#112d4e',
+    lightestSlate: '#3f72af',
+    white: '#3f72af',
     green: ACCENT,
-    black: '#292f36',
+    black: '#000',
     transGreen: hex2rgba(ACCENT, 0.07),
     shadowNavy: hex2rgba(DARK_BG, 0.7),
   },
