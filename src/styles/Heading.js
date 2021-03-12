@@ -11,6 +11,7 @@ const Heading = styled.h3`
   width: 100%;
   white-space: nowrap;
   font-size: ${fontSizes.h3};
+  color: ${colors.zBlack};
   ${media.tablet`font-size: 24px;`};
 
   &:before {
@@ -19,7 +20,7 @@ const Heading = styled.h3`
     margin-right: 10px;
     font-family: ${fonts.SFMono};
     font-weight: normal;
-    color: ${colors.green};
+    color: ${colors.zBlack};
     font-size: ${fontSizes.xl};
     position: relative;
     bottom: 4px;

@@ -17,6 +17,7 @@ const StyledContainer = styled(Section)`
 const StyledTitle = styled.h4`
   margin: 0 auto;
   font-size: ${fontSizes.h3};
+  color: ${colors.zBlack};
   ${media.tablet`font-size: 24px;`};
   a {
     display: block;
@@ -28,6 +29,10 @@ const StyledArchiveLink = styled(Link)`
   margin: 0 auto;
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.sm};
+  color: ${colors.blue};
+  &:hover {
+    color: ${colors.darkBlue};
+  }
   &:after {
     bottom: 0.1em;
   }
@@ -53,7 +58,7 @@ const StyledProjectInner = styled.div`
   height: 100%;
   border-radius: ${theme.borderRadius};
   transition: ${theme.transition};
-  background-color: ${colors.lightNavy};
+  background: ${colors.lightestBlue};
 `;
 const StyledProject = styled.div`
   transition: ${theme.transition};
@@ -85,6 +90,10 @@ const StyledIconLink = styled.a`
   position: relative;
   top: -10px;
   padding: 10px;
+  color: ${colors.blue};
+  &:hover {
+    color: ${colors.darkBlue};
+  }
   svg {
     width: 20px;
     height: 20px;
@@ -93,11 +102,11 @@ const StyledIconLink = styled.a`
 const StyledProjectName = styled.h5`
   margin: 0 0 10px;
   font-size: ${fontSizes.xxl};
-  color: ${colors.lightestSlate};
+  color: ${colors.black};
 `;
 const StyledProjectDescription = styled.div`
   font-size: 17px;
-  color: ${colors.lightSlate};
+  color: ${colors.black};
   a {
     ${mixins.inlineLink};
   }

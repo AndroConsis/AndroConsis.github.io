@@ -70,9 +70,9 @@ const StyledTabButton = styled.button`
   border-left: 2px solid ${colors.lightestNavy};
   text-align: left;
   white-space: nowrap;
-  font-family: ${fonts.SFMono};
-  font-size: ${fontSizes.smish};
-  color: ${props => (props.isActive ? colors.green : colors.slate)};
+  font-family: ${fonts.Calibre};
+  font-size: ${fontSizes.lg};
+  color: ${props => (props.isActive ? colors.darkBlue : colors.blue)};
   ${media.tablet`padding: 0 15px 2px;`};
   ${media.thone`
     ${mixins.flexCenter};
@@ -84,12 +84,13 @@ const StyledTabButton = styled.button`
   `};
   &:hover,
   &:focus {
-    background-color: ${colors.lightNavy};
+    color: ${colors.darkBlue};
+    background-color: ${colors.lightestSlate};
   }
 `;
 const StyledHighlight = styled.span`
   display: block;
-  background: ${colors.green};
+  background: ${colors.blue};
   width: 2px;
   height: ${theme.tabHeight}px;
   border-radius: ${theme.borderRadius};
@@ -134,23 +135,31 @@ const StyledTabContent = styled.div`
   }
 `;
 const StyledJobTitle = styled.h4`
-  color: ${colors.lightestSlate};
+  color: ${colors.black};
   font-size: ${fontSizes.xxl};
   font-weight: 500;
   margin-bottom: 5px;
 `;
 const StyledCompany = styled.span`
-  color: ${colors.green};
+  color: ${colors.black};
 `;
 const StyledJobDetails = styled.h5`
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.smish};
   font-weight: normal;
   letter-spacing: 0.05em;
-  color: ${colors.lightSlate};
+  color: ${colors.slate};
   margin-bottom: 30px;
   svg {
     width: 15px;
+  }
+`;
+const StyledLink = styled.a`
+  color: ${colors.blue};
+  background-color: 'blue';
+  &:hover,
+  &:focus {
+    color: ${colors.darkBlue};
   }
 `;
 
@@ -237,9 +246,9 @@ const Jobs = ({ data }) => {
                   <span>{title}</span>
                   <StyledCompany>
                     <span>&nbsp;@&nbsp;</span>
-                    <a href={url} target="_blank" rel="nofollow noopener noreferrer">
+                    <StyledLink href={url} target="_blank" rel="nofollow noopener noreferrer">
                       {company}
-                    </a>
+                    </StyledLink>
                   </StyledCompany>
                 </StyledJobTitle>
                 <StyledJobDetails>

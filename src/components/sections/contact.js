@@ -18,7 +18,7 @@ const StyledContainer = styled(Section)`
 `;
 const StyledHeading = styled(Heading)`
   display: block;
-  color: ${colors.green};
+  color: ${colors.black};
   font-size: ${fontSizes.md};
   font-family: ${fonts.SFMono};
   font-weight: normal;
@@ -37,6 +37,7 @@ const StyledHeading = styled(Heading)`
 const StyledTitle = styled.h4`
   margin: 0 0 20px;
   font-size: 60px;
+  color: ${colors.zBlack};
   ${media.desktop`font-size: 50px;`};
   ${media.tablet`font-size: 40px;`};
 `;

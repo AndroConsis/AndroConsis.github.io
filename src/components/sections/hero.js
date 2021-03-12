@@ -17,7 +17,7 @@ const StyledContainer = styled(Section)`
   }
 `;
 const StyledOverline = styled.h1`
-  color: ${colors.green};
+  color: ${colors.darkBlack};
   margin: 0 0 20px 3px;
   font-size: ${fontSizes.md};
   font-family: ${fonts.SFMono};
@@ -38,7 +38,7 @@ const StyledTitle = styled.h2`
 const StyledSubtitle = styled.h3`
   font-size: 80px;
   line-height: 1.1;
-  color: ${colors.lightestSlate};
+  color: ${colors.lightGreen};
   ${media.desktop`font-size: 70px;`};
   ${media.tablet`font-size: 60px;`};
   ${media.phablet`font-size: 50px;`};
@@ -48,6 +48,7 @@ const StyledDescription = styled.div`
   margin-top: 25px;
   width: 50%;
   max-width: 500px;
+  color: ${colors.green};
   a {
     ${mixins.inlineLink};
   }

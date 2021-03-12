@@ -15,17 +15,18 @@ const Button = styled.button`
   border-radius: ${theme.borderRadius};
   font-size: ${fontSizes.sm};
   font-family: ${fonts.SFMono};
-  background: ${p => (p.isComplete ? `${colors.DARK_BG}` : `transparent`)};
-  /* color: ${p => (p.isComplete ? 'white' : '#5e5d5f')}; */
-  color: ${colors.green} !important;
   transition: background 0.5s;
+  background-color: ${colors.blue};
+  border: 1px solid ${colors.blue};
+  color: ${colors.white};
   &:disabled {
     cursor: not-allowed;
   }
   &:hover,
   &:focus,
   &:active {
-    background-color: ${colors.transGreen};
+    background-color: ${colors.darkBlue};
+    color: ${colors.white};
   }
   &:after {
     display: none !important;

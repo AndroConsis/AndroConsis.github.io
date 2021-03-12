@@ -35,7 +35,7 @@ const StyledLabel = styled.h4`
 const StyledProjectName = styled.h5`
   font-size: 28px;
   margin: 0 0 20px;
-  color: ${colors.lightestSlate};
+  color: ${colors.zBlack};
   ${media.tablet`font-size: 24px;`};
   ${media.thone`color: ${colors.white};`};
   a {
@@ -47,7 +47,7 @@ const StyledDescription = styled.div`
   position: relative;
   z-index: 2;
   padding: 25px;
-  background-color: ${colors.lightNavy};
+  background-color: ${colors.slightBlack};
   color: ${colors.lightSlate};
   font-size: ${fontSizes.lg};
   border-radius: ${theme.borderRadius};
@@ -114,12 +114,12 @@ const StyledFeaturedImg = styled(Img)`
   position: relative;
   mix-blend-mode: blend;
   z-index: 2;
-  filter: grayscale(100%) contrast(1);
+  filter: grayscale(50%) contrast(1);
   ${media.tablet`
     object-fit: cover;
     width: auto;
     height: 100%;
-    filter: grayscale(100%) contrast(1) brightness(20%);
+    filter: grayscale(50%) contrast(1) brightness(20%);
   `};
 `;
 const StyledImgContainer = styled.a`

@@ -71,13 +71,14 @@ const mixins = {
   `,
 
   smallButton: css`
-    color: ${colors.green};
+    color: ${colors.blue};
     background-color: transparent;
-    border: 1px solid ${colors.green};
+    border: 0.1rem solid ${colors.lightBlack};
     border-radius: ${theme.borderRadius};
     padding: 0.75rem 1rem;
     font-size: ${fontSizes.smish};
     font-family: ${fonts.SFMono};
+    font-weight: 500;
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -86,6 +87,8 @@ const mixins = {
     &:focus,
     &:active {
       background-color: ${colors.transGreen};
+      color: ${colors.darkBlue};
+      border: 0.1rem solid ${colors.darkBlue};
     }
     &:after {
       display: none !important;
@@ -93,9 +96,9 @@ const mixins = {
   `,
 
   bigButton: css`
-    color: ${colors.green};
-    background-color: transparent;
-    border: 1px solid ${colors.green};
+    color: ${colors.white};
+    background-color: ${colors.blue};
+    border: 1px solid ${colors.blue};
     border-radius: ${theme.borderRadius};
     padding: 1.25rem 1.75rem;
     font-size: ${fontSizes.sm};
@@ -107,7 +110,8 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: ${colors.transGreen};
+      background-color: ${colors.darkBlue};
+      color: ${colors.white};
     }
     &:after {
       display: none !important;

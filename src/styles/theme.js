@@ -1,24 +1,32 @@
 import { hex2rgba } from '@utils';
 
-const ACCENT = '#005b96';
-// const DARK_BG = '#020c1b';
-const DARK_BG = '#f6fafb';
+const ACCENT = '#80868b';
 const BG = '#FFF';
 
 const theme = {
   colors: {
-    darkNavy: DARK_BG,
+    darkNavy: BG,
     navy: BG,
-    lightNavy: '#f6fafb',
-    lightestNavy: '#009be4',
-    slate: 'rgba(0,0,0,.40)',
-    lightSlate: '#112d4e',
-    lightestSlate: '#3f72af',
-    white: '#3f72af',
+    lightNavy: '#FFF',
+    lightestNavy: '#202124',
+    slate: '#202124',
+    lightSlate: '#202124',
+    lightestSlate: '#f8f9fa',
+    white: BG,
     green: ACCENT,
-    black: '#000',
-    transGreen: hex2rgba(ACCENT, 0.07),
-    shadowNavy: hex2rgba(DARK_BG, 0.7),
+    lightGreen: '#fbbc05',
+    black: '#5f6368',
+    darkBlack: ACCENT,
+    zBlack: '#202124',
+    lightBlack: hex2rgba(ACCENT, 0.7),
+    // transGreen: hex2rgba(ACCENT, 0.07),
+    // shadowNavy: "hex2rgba(DARK_BG, 0".7),
+    transGreen: '#FFF',
+    shadowNavy: '#FFF',
+    blue: '#4285f4',
+    darkBlue: '#3D60CC',
+    lightestBlue: '#4285f410',
+    slightBlack: 'rgba(248, 249, 250)',
   },
 
   fonts: {

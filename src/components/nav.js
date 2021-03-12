@@ -36,7 +36,7 @@ const StyledNav = styled.nav`
   ${mixins.flexBetween};
   position: relative;
   width: 100%;
-  color: ${colors.lightestSlate};
+  color: ${colors.black};
   font-family: ${fonts.SFMono};
   counter-reset: item 0;
   z-index: 12;
@@ -51,7 +51,7 @@ const StyledLogo = styled.div`
     &:hover,
     &:focus {
       svg {
-        fill: ${colors.transGreen};
+        fill: ${colors.darkBlack};
       }
     }
     svg {
@@ -103,7 +103,7 @@ const StyledHamburgerInner = styled.div`
   &:after {
     content: '';
     display: block;
-    background-color: ${colors.green};
+    background-color: ${colors.darkBlack};
     position: absolute;
     left: auto;
     right: 0;
@@ -143,15 +143,20 @@ const StyledListItem = styled.li`
   position: relative;
   font-size: ${fontSizes.smish};
   counter-increment: item 1;
+  color: ${colors.black};
   &:before {
     content: '0' counter(item) '.';
     text-align: right;
-    color: ${colors.green};
+    color: ${colors.darkBlack};
     font-size: ${fontSizes.xs};
   }
 `;
 const StyledListLink = styled(Link)`
   padding: 12px 10px;
+  color: ${colors.black};
+  :hover {
+    color: ${colors.zBlack};
+  }
 `;
 const StyledResumeButton = styled.a`
   ${mixins.smallButton};
