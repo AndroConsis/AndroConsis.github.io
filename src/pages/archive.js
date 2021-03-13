@@ -40,6 +40,7 @@ const StyledTable = styled.table`
     cursor: default;
     line-height: 1.5;
     padding: 10px 20px;
+    color: ${colors.zBlack};
     ${media.tablet`
       padding: 10px;
     `};
@@ -56,7 +57,7 @@ const StyledTable = styled.table`
     }
     &.title {
       padding-top: 15px;
-      color: ${colors.lightestSlate};
+      color: ${colors.black};
       font-size: ${fontSizes.xl};
       font-weight: 700;
     }
@@ -79,8 +80,12 @@ const StyledTable = styled.table`
       span {
         display: flex;
         align-items: center;
+        color: ${colors.blue};
         a {
           ${mixins.flexCenter};
+          &:hover {
+            color: ${colors.darkBlue};
+          }
         }
         a + a {
           margin-left: 10px;
