@@ -68,7 +68,7 @@ const GlobalStyle = createGlobalStyle`
   h5,
   h6 {
     font-weight: 600;
-    color: ${colors.lightestSlate};
+    color: ${colors.lightestNavy};
     margin: 0 0 10px 0;
   }
 
@@ -77,7 +77,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 80px;
       line-height: 1.1;
       margin: 0;
-      color: ${colors.zBlack}
+      color: ${colors.zBlack};
       ${media.desktop`font-size: 70px;`};
       ${media.tablet`font-size: 60px;`};
       ${media.phablet`font-size: 50px;`};
@@ -88,6 +88,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 60px;
       line-height: 1.1;
       margin: 0;
+      color: ${colors.lightestNavy};
       ${media.desktop`font-size: 50px;`};
       ${media.tablet`font-size: 40px;`};
     }
@@ -217,6 +218,7 @@ const GlobalStyle = createGlobalStyle`
   code {
     font-family: ${fonts.SFMono};
     font-size: ${fontSizes.md};
+    color: ${colors.lightNavy}
   }
 
   #logo {

@@ -35,7 +35,7 @@ const StyledGrid = styled.div`
 
   .posts {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(800px, 1fr));
     grid-gap: 15px;
     position: relative;
     ${media.desktop`grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));`};
@@ -82,7 +82,7 @@ const StyledFolder = styled.div`
 const StyledPostName = styled.h5`
   margin: 0 0 10px;
   font-size: ${fontSizes.xxl};
-  color: ${colors.lightestSlate};
+  color: ${colors.zBlack};
 `;
 const StyledPostDescription = styled.div`
   font-size: 17px;
@@ -134,8 +134,9 @@ const PensievePage = ({ location, data }) => {
             <a
               href="https://www.wizardingworld.com/writing-by-jk-rowling/pensieve"
               target="_blank"
-              rel="noopener noreferrer">
-              a collection of memories
+              rel="noopener noreferrer"
+            >
+              a dish full of records
             </a>
           </p>
         </header>
