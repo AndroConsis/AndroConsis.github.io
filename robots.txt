@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://prateekrathore.com/sitemap.xml
+Sitemap: https://prateekrathore.com/sitemap/sitemap-index.xml
 Host: https://prateekrathore.com
