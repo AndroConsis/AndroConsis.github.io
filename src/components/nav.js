@@ -36,7 +36,7 @@ const StyledNav = styled.nav`
   ${mixins.flexBetween};
   position: relative;
   width: 100%;
-  color: ${colors.black};
+  color: ${colors.zBlack};
   font-family: ${fonts.SFMono};
   counter-reset: item 0;
   z-index: 12;
@@ -71,7 +71,7 @@ const StyledHamburger = styled.div`
   transition-duration: 0.15s;
   transition-property: opacity, filter;
   text-transform: none;
-  color: inherit;
+  color: ${colors.zBlack};
   border: 0;
   background-color: transparent;
   display: none;
@@ -286,7 +286,8 @@ class Nav extends Component {
                     <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
                       <StyledListItem
                         key={i}
-                        style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
+                        style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}
+                      >
                         <StyledListLink to={url}>{name}</StyledListLink>
                       </StyledListItem>
                     </CSSTransition>
@@ -301,7 +302,8 @@ class Nav extends Component {
                     <StyledResumeButton
                       href="/resume.pdf"
                       target="_blank"
-                      rel="nofollow noopener noreferrer">
+                      rel="nofollow noopener noreferrer"
+                    >
                       Resume
                     </StyledResumeButton>
                   </div>
