@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Prateek Fire Effect</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            position: relative;
+            cursor: none;
+        }
+        .container {
+            position: relative;
+            font-size: 10vw;
+            font-weight: 900;
+            color: black;
+            text-transform: uppercase;
+            visibility: hidden;
+        }
+        .highlight-mask {
+            position: absolute;
+            top: 50%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+            font-size: 10vw;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: white;
+            background: radial-gradient(circle 300px at var(--x) var(--y), rgba(255, 200, 150, 1), rgba(255, 255, 255, 0));
+            mix-blend-mode: lighten;
+            pointer-events: none;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .background-mask {
+            position: absolute;
+            top: 50%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+            font-size: 10vw;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: white;
+            background: radial-gradient(circle 500px at var(--x) var(--y), rgba(255, 200, 150, 1), rgba(255, 255, 255, 0));
+            mix-blend-mode: lighten;
+            pointer-events: none;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: -10px 0 10px rgb(0, 0, 0);
+            animation: flickerLight 0.1s infinite alternate;
+        }
+        .fire-mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle 40px at var(--x) var(--y), rgba(255, 140, 0, 0.8), rgba(255, 69, 0, 0.5), rgba(0, 0, 0, 0));
+            mix-blend-mode: screen;
+            pointer-events: none;
+            filter: blur(10px);
+            animation: flicker 0.1s infinite alternate;
+        }
+        @keyframes flicker {
+            from { opacity: 0.85; transform: scale(1.05); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes flickerLight {
+            from { opacity: 0.85; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">Social Prateek</div>
+    <div class="highlight-mask">Social Prateek</div>
+    <div class="background-mask">Social Prateek</div>
+    <div class="fire-mask"></div>
+    <script>
+        const fireMask = document.querySelector('.fire-mask');
+        const backgroundMask = document.querySelector('.background-mask');
+        const highlightMask = document.querySelector('.highlight-mask');
+        let mouseX = 0, mouseY = 0;
+        let ticking = false;
+        
+
+        
+        document.addEventListener("mousemove", function(event) {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+
+            if (!ticking) {
+                requestAnimationFrame(updateEffect);
+                ticking = true;
+            }
+        });
+
+        function updateEffect() {
+            fireMask.style.setProperty('--x', `${mouseX}px`);
+            fireMask.style.setProperty('--y', `${mouseY}px`);
+            backgroundMask.style.setProperty('--x', `${mouseX}px`);
+            backgroundMask.style.setProperty('--y', `${mouseY-450}px`);
+            highlightMask.style.setProperty('--x', `${mouseX}px`);
+            highlightMask.style.setProperty('--y', `${mouseY-450}px`);
+            ticking = false;
+        }
+    </script>
+</body>
+</html>
