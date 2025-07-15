@@ -3,117 +3,631 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Prateek</title>
+    <title>SocialPrateek - Interactive Resume Journey</title>
     <style>
-        body {
+        * {
             margin: 0;
-            overflow: hidden;
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            position: relative;
-            cursor: none;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+            height: 100vh;
+            perspective: 1000px;
+        }
+
         .container {
             position: relative;
-            font-size: 10vw;
-            font-weight: 900;
-            color: black;
-            text-transform: uppercase;
-            visibility: hidden;
+            width: 100%;
+            height: 100vh;
+            transform-style: preserve-3d;
         }
-        .highlight-mask {
+
+        .road-container {
             position: absolute;
-            top: 50%;
-            left: 35%;
-            transform: translate(-50%, -50%);
-            font-size: 10vw;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: white;
-            background: radial-gradient(circle 300px at var(--x) var(--y), rgba(255, 200, 150, 1), rgba(255, 255, 255, 0));
-            mix-blend-mode: lighten;
-            pointer-events: none;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .background-mask {
-            position: absolute;
-            top: 50%;
-            left: 35%;
-            transform: translate(-50%, -50%);
-            font-size: 10vw;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: white;
-            background: radial-gradient(circle 500px at var(--x) var(--y), rgba(255, 200, 150, 1), rgba(255, 255, 255, 0));
-            mix-blend-mode: lighten;
-            pointer-events: none;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: -10px 0 10px rgb(0, 0, 0);
-            animation: flickerLight 0.1s infinite alternate;
-        }
-        .fire-mask {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle 40px at var(--x) var(--y), rgba(255, 140, 0, 0.8), rgba(255, 69, 0, 0.5), rgba(0, 0, 0, 0));
-            mix-blend-mode: screen;
-            pointer-events: none;
-            filter: blur(10px);
-            animation: flicker 0.1s infinite alternate;
+            bottom: 0;
+            transform-style: preserve-3d;
         }
-        @keyframes flicker {
-            from { opacity: 0.85; transform: scale(1.05); }
-            to { opacity: 1; transform: scale(1); }
+
+        .road {
+            position: absolute;
+            width: 200%;
+            height: 200px;
+            bottom: 20%;
+            left: -50%;
+            background: linear-gradient(
+                90deg,
+                #2c3e50 0%,
+                #34495e 45%,
+                #f39c12 47%,
+                #f39c12 50%,
+                #f39c12 53%,
+                #34495e 55%,
+                #2c3e50 100%
+            );
+            transform: rotateX(60deg) translateZ(-50px);
+            transition: transform 0.5s ease;
         }
-        @keyframes flickerLight {
-            from { opacity: 0.85; }
-            to { opacity: 1; }
+
+        .road::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                #fff 0%,
+                #fff 40px,
+                transparent 40px,
+                transparent 80px
+            );
+            transform: translateY(-50%);
+            transition: transform 0.5s ease;
         }
+
+        .road.moving-left {
+            animation: roadMoveLeft 0.5s ease-in-out;
+        }
+
+        .road.moving-right {
+            animation: roadMoveRight 0.5s ease-in-out;
+        }
+
+        @keyframes roadMoveLeft {
+            0% { transform: rotateX(60deg) translateZ(-50px) translateX(0); }
+            100% { transform: rotateX(60deg) translateZ(-50px) translateX(-100px); }
+        }
+
+        @keyframes roadMoveRight {
+            0% { transform: rotateX(60deg) translateZ(-50px) translateX(0); }
+            100% { transform: rotateX(60deg) translateZ(-50px) translateX(100px); }
+        }
+
+        .car {
+            position: absolute;
+            width: 160px;
+            height: 80px;
+            bottom: 35%;
+            left: 50%;
+            transform: translateX(-50%) translateZ(20px);
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .car-body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FF6B35, #D32F2F);
+            border-radius: 8px 8px 4px 4px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            transform-style: preserve-3d;
+        }
+
+        .car-hood {
+            position: absolute;
+            width: 35%;
+            height: 100%;
+            background: linear-gradient(135deg, #FF8A65, #FF5722);
+            border-radius: 8px 4px 4px 4px;
+            left: 0;
+            top: 0;
+            transform: translateZ(2px);
+        }
+
+        .car-roof {
+            position: absolute;
+            width: 50%;
+            height: 70%;
+            background: linear-gradient(135deg, #424242, #212121);
+            border-radius: 12px 12px 4px 4px;
+            top: 5%;
+            left: 35%;
+            transform: translateZ(8px);
+        }
+
+        .car-windshield {
+            position: absolute;
+            width: 35%;
+            height: 50%;
+            background: linear-gradient(135deg, rgba(135, 206, 235, 0.8), rgba(100, 149, 237, 0.6));
+            border-radius: 8px 8px 2px 2px;
+            top: 10%;
+            left: 37%;
+            transform: translateZ(9px);
+            border: 2px solid #333;
+        }
+
+        .car-rear-window {
+            position: absolute;
+            width: 25%;
+            height: 40%;
+            background: linear-gradient(135deg, rgba(135, 206, 235, 0.6), rgba(100, 149, 237, 0.4));
+            border-radius: 4px;
+            top: 15%;
+            right: 8%;
+            transform: translateZ(9px);
+            border: 2px solid #333;
+        }
+
+        .car-grille {
+            position: absolute;
+            width: 8%;
+            height: 40%;
+            background: linear-gradient(135deg, #333, #555);
+            border-radius: 2px;
+            top: 30%;
+            left: 2%;
+            transform: translateZ(3px);
+        }
+
+        .car-headlight {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #FFF, #E0E0E0);
+            border-radius: 50%;
+            top: 40%;
+            left: 8%;
+            transform: translateZ(3px);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .car-taillight {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #FF4444, #CC0000);
+            border-radius: 50%;
+            top: 45%;
+            right: 5%;
+            transform: translateZ(3px);
+        }
+
+        .car-door-handle {
+            position: absolute;
+            width: 8px;
+            height: 4px;
+            background: #888;
+            border-radius: 2px;
+            top: 50%;
+            left: 50%;
+            transform: translateZ(3px);
+        }
+
+        .car-stripe {
+            position: absolute;
+            width: 60%;
+            height: 8px;
+            background: linear-gradient(90deg, #FFF, #E0E0E0, #FFF);
+            border-radius: 4px;
+            top: 60%;
+            left: 20%;
+            transform: translateZ(1px);
+        }
+
+        .wheel {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            background: radial-gradient(circle, #2c3e50, #1a252f);
+            border-radius: 50%;
+            bottom: -14px;
+            border: 4px solid #444;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .wheel::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #666;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .wheel.front { right: 15px; }
+        .wheel.back { left: 15px; }
+
+        .wheel.spinning {
+            animation: wheelRotate 0.5s linear;
+        }
+
+        @keyframes wheelRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .milestone {
+            position: absolute;
+            width: 300px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform: translateZ(50px);
+            opacity: 0;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .milestone.active {
+            opacity: 1;
+            transform: translateZ(50px) translateY(-20px);
+        }
+
+        .milestone h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 18px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        .milestone p {
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .milestone .date {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .milestone .skills {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .skill-tag {
+            background: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .header {
+            position: fixed;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+            z-index: 100;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .clouds {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            opacity: 0.6;
+            animation: cloudMove 15s linear infinite;
+        }
+
+        .cloud:nth-child(1) { width: 100px; height: 40px; top: 20%; left: -100px; animation-delay: 0s; }
+        .cloud:nth-child(2) { width: 80px; height: 30px; top: 30%; left: -80px; animation-delay: 5s; }
+        .cloud:nth-child(3) { width: 120px; height: 50px; top: 40%; left: -120px; animation-delay: 10s; }
+
+        @keyframes cloudMove {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        .milestone-1 { top: 20%; right: 10%; }
+        .milestone-2 { top: 40%; left: 10%; }
+        .milestone-3 { top: 60%; right: 15%; }
+        .milestone-4 { top: 25%; left: 15%; }
+        .milestone-5 { top: 45%; right: 20%; }
+        .milestone-6 { top: 35%; left: 20%; }
+        .milestone-7 { top: 55%; right: 10%; }
+        .milestone-8 { top: 65%; left: 10%; }
     </style>
 </head>
 <body>
-    <div class="container">Social Prateek</div>
-    <div class="highlight-mask">Social Prateek</div>
-    <div class="background-mask">Social Prateek</div>
-    <div class="fire-mask"></div>
+    <div class="container">
+        <div class="clouds">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+        </div>
+        
+        <div class="header">
+            <h1>Prateek Rathore</h1>
+            <p>Interactive Resume Journey</p>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <div class="road-container">
+            <div class="road"></div>
+        </div>
+        
+        <div class="car" id="car">
+            <div class="car-body">
+                <div class="car-hood"></div>
+                <div class="car-roof"></div>
+                <div class="car-windshield"></div>
+                <div class="car-rear-window"></div>
+                <div class="car-grille"></div>
+                <div class="car-headlight"></div>
+                <div class="car-taillight"></div>
+                <div class="car-door-handle"></div>
+                <div class="car-stripe"></div>
+                <div class="wheel front" id="frontWheel"></div>
+                <div class="wheel back" id="backWheel"></div>
+            </div>
+        </div>
+        
+        <!-- Education -->
+        <div class="milestone milestone-1" id="milestone-1">
+            <h3>🎓 Education</h3>
+            <p class="date">B.Tech/B.E. - Rajasthan Technical University, Jaipur</p>
+            <p>Foundation in Computer Science and Engineering</p>
+        </div>
+        
+        <!-- First Job -->
+        <div class="milestone milestone-2" id="milestone-2">
+            <h3>💼 Junior Software Developer</h3>
+            <p class="date">Dec 2014 - Apr 2015</p>
+            <p><strong>Sangha Technologies</strong></p>
+            <p>Created native Android applications in a team environment</p>
+            <div class="skills">
+                <span class="skill-tag">Android</span>
+                <span class="skill-tag">Java</span>
+            </div>
+        </div>
+        
+        <!-- Second Job -->
+        <div class="milestone milestone-3" id="milestone-3">
+            <h3>📱 Mobile App Developer</h3>
+            <p class="date">Jul 2015 - Aug 2016</p>
+            <p><strong>Consistenza Technologies</strong></p>
+            <p>Built cross-platform apps including Android, iOS, Windows, Blackberry</p>
+            <div class="skills">
+                <span class="skill-tag">Cross-platform</span>
+                <span class="skill-tag">Android</span>
+                <span class="skill-tag">iOS</span>
+            </div>
+        </div>
+        
+        <!-- Third Job -->
+        <div class="milestone milestone-4" id="milestone-4">
+            <h3>⚡ Software Engineer</h3>
+            <p class="date">Aug 2016 - Jan 2017</p>
+            <p><strong>Educo Technology</strong></p>
+            <p>Delivered hybrid mobile apps using PhoneGap and Android SDK</p>
+            <div class="skills">
+                <span class="skill-tag">PhoneGap</span>
+                <span class="skill-tag">Android SDK</span>
+                <span class="skill-tag">Hybrid Apps</span>
+            </div>
+        </div>
+        
+        <!-- Fourth Job -->
+        <div class="milestone milestone-5" id="milestone-5">
+            <h3>🔍 Software Analyst</h3>
+            <p class="date">Mar 2017 - Dec 2017</p>
+            <p><strong>Krixi Solutions</strong></p>
+            <p>Led Android and cross-platform app delivery for healthcare products</p>
+            <div class="skills">
+                <span class="skill-tag">Healthcare</span>
+                <span class="skill-tag">Android</span>
+                <span class="skill-tag">Leadership</span>
+            </div>
+        </div>
+        
+        <!-- Fifth Job -->
+        <div class="milestone milestone-6" id="milestone-6">
+            <h3>🚀 Senior Software Developer</h3>
+            <p class="date">Jan 2018 - Sep 2021</p>
+            <p><strong>FIGMD</strong></p>
+            <p>Developed cross-platform mobile apps using React Native and ReactJS. Built CI pipelines and maintained clean architecture</p>
+            <div class="skills">
+                <span class="skill-tag">React Native</span>
+                <span class="skill-tag">ReactJS</span>
+                <span class="skill-tag">Redux</span>
+                <span class="skill-tag">CI/CD</span>
+            </div>
+        </div>
+        
+        <!-- Current Job -->
+        <div class="milestone milestone-7" id="milestone-7">
+            <h3>👨‍💼 Engineering Manager</h3>
+            <p class="date">Oct 2021 - Present</p>
+            <p><strong>EXL Service</strong></p>
+            <p>Leading a team on a Fintech platform using React, Spring Boot, and GraphQL. Designed GraphQL APIs to integrate Power BI metrics</p>
+            <div class="skills">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Spring Boot</span>
+                <span class="skill-tag">GraphQL</span>
+                <span class="skill-tag">Leadership</span>
+            </div>
+        </div>
+        
+        <!-- Certifications -->
+        <div class="milestone milestone-8" id="milestone-8">
+            <h3>🏆 Certifications & Skills</h3>
+            <p class="date">AWS Certified Cloud Practitioner (Valid until Dec 2027)</p>
+            <p>Java and Spring Framework - Udemy</p>
+            <p>Android Development Training - Seed Infotech</p>
+            <div class="skills">
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Spring Boot</span>
+                <span class="skill-tag">React Native</span>
+                <span class="skill-tag">Node.js</span>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="control-btn" onclick="moveCar('left')">← Previous</button>
+            <button class="control-btn" onclick="moveCar('right')">Next →</button>
+        </div>
+    </div>
+
     <script>
-        const fireMask = document.querySelector('.fire-mask');
-        const backgroundMask = document.querySelector('.background-mask');
-        const highlightMask = document.querySelector('.highlight-mask');
-        let mouseX = 0, mouseY = 0;
-        let ticking = false;
+        let currentMilestone = 0;
+        const totalMilestones = 8;
+        const car = document.getElementById('car');
+        const progressFill = document.getElementById('progressFill');
+        const road = document.querySelector('.road');
+        const frontWheel = document.getElementById('frontWheel');
+        const backWheel = document.getElementById('backWheel');
         
-
+        function updateProgress() {
+            const progress = (currentMilestone / totalMilestones) * 100;
+            progressFill.style.width = progress + '%';
+        }
         
-        document.addEventListener("mousemove", function(event) {
-            mouseX = event.clientX;
-            mouseY = event.clientY;
-
-            if (!ticking) {
-                requestAnimationFrame(updateEffect);
-                ticking = true;
+        function showMilestone(index) {
+            // Hide all milestones
+            for (let i = 1; i <= totalMilestones; i++) {
+                document.getElementById(`milestone-${i}`).classList.remove('active');
+            }
+            
+            // Show current milestone
+            if (index > 0 && index <= totalMilestones) {
+                document.getElementById(`milestone-${index}`).classList.add('active');
+            }
+        }
+        
+        function animateRoad(direction) {
+            road.classList.remove('moving-left', 'moving-right');
+            
+            if (direction === 'right') {
+                road.classList.add('moving-left');
+            } else if (direction === 'left') {
+                road.classList.add('moving-right');
+            }
+            
+            // Animate wheels
+            frontWheel.classList.add('spinning');
+            backWheel.classList.add('spinning');
+            
+            // Remove animation classes after animation completes
+            setTimeout(() => {
+                road.classList.remove('moving-left', 'moving-right');
+                frontWheel.classList.remove('spinning');
+                backWheel.classList.remove('spinning');
+            }, 500);
+        }
+        
+        function moveCar(direction) {
+            if (direction === 'right' && currentMilestone < totalMilestones) {
+                currentMilestone++;
+                animateRoad('right');
+                car.style.transform = `translateX(-50%) translateZ(20px) translateX(${currentMilestone * 50}px)`;
+                showMilestone(currentMilestone);
+                updateProgress();
+            } else if (direction === 'left' && currentMilestone > 0) {
+                currentMilestone--;
+                animateRoad('left');
+                car.style.transform = `translateX(-50%) translateZ(20px) translateX(${currentMilestone * 50}px)`;
+                showMilestone(currentMilestone);
+                updateProgress();
+            }
+        }
+        
+        // Keyboard controls
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                moveCar('right');
+            } else if (event.key === 'ArrowLeft') {
+                moveCar('left');
             }
         });
-
-        function updateEffect() {
-            fireMask.style.setProperty('--x', `${mouseX}px`);
-            fireMask.style.setProperty('--y', `${mouseY}px`);
-            backgroundMask.style.setProperty('--x', `${mouseX}px`);
-            backgroundMask.style.setProperty('--y', `${mouseY-450}px`);
-            highlightMask.style.setProperty('--x', `${mouseX}px`);
-            highlightMask.style.setProperty('--y', `${mouseY-450}px`);
-            ticking = false;
-        }
+        
+        // Auto-start animation
+        setTimeout(() => {
+            moveCar('right');
+        }, 2000);
+        
+        // Initialize
+        updateProgress();
     </script>
 </body>
 </html>
